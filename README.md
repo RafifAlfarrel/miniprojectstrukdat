@@ -7,7 +7,7 @@ Aplikasi web bioinformatika untuk analisis komposisi nukleotida, perhitungan GC/
 - **Comprehensive Analysis**: Menghitung statistik nukleotida (A, T, G, C, N), GC Content, AT Content, hingga translasi protein.
 - **Dynamic Visualization**: Grafik distribusi GC Content (Top 3) dengan antarmuka yang interaktif.
 - **Exportable Results**: Data lengkap hasil analisis dapat diunduh langsung dalam format `.csv`.
-- **Professional UI**: Antarmuka responsif dengan tema modern, font Poppins, dan efek *Glassmorphism*.
+- **Professional UI**: Antarmuka responsif dengan tema modern.
 
 ## Arsitektur Proyek
 Aplikasi ini dibangun menggunakan pendekatan *Object-Oriented Programming* (OOP) untuk menjaga kode tetap modular dan mudah dikembangkan:
