@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA GC-Content Monitor | IPB University</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='images/LOGOBIF.png') }}" alt="Logo Bioinformatika IPB" class="nav-logo">
+            <div class="nav-divider"></div>
+            <h1 class="nav-title">DNA GC-Content Monitor</h1>
+        </div>
+        <div class="nav-right">
+            <span class="badge">Multi-FASTA</span>
+            <span class="badge">AT/GC Ratio</span>
+            <span class="badge">Export to CSV</span>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <section class="glass-card upload-card" id="drop-zone">
+            <h2>Unggah Dataset</h2>
+            <p style="margin-bottom: 10px;">Drag & Drop file FASTA Anda ke sini atau klik untuk memilih file.</p>
+            
+            <div style="margin-top: 15px; margin-bottom: 20px;">
+                <span style="background: rgba(0, 113, 227, 0.1); color: #0071e3; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(0, 113, 227, 0.3);">
+                    Mendukung Upload Multiple Files Sekaligus
+                </span>
+            </div>
+            <input type="file" id="file-input" accept=".fasta,.fa,.fastq" multiple hidden>
+            <div id="status-message"></div>
+        </section>
+
+        <div class="summary-grid hidden" id="summary-section">
+            <div class="glass-card metric-card">
+                <h3>Total Sekuens</h3>
+                <p id="sum-total">0</p>
+            </div>
+            <div class="glass-card metric-card">
+                <h3>Rata-rata GC Content</h3>
+                <p id="sum-avg-gc">0%</p>
+            </div>
+            <div class="glass-card metric-card action-card">
+                <h3>Unduh Laporan</h3>
+                <a id="download-btn" href="/download" download class="btn-download">Export CSV</a>
+            </div>
+        </div>
+
+        <main class="grid-layout hidden" id="main-content">
+            <section class="glass-card chart-card">
+                <h2>Grafik GC Content (Top 3 Teratas)</h2>
+                <canvas id="gc-canvas" width="600" height="300"></canvas>
+            </section>
+
+            <section class="glass-card table-card">
+                <h2>Detail Komposisi Basa Nitrogen</h2>
+                <div class="table-wrapper">
+                    <table id="result-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>ID Sekuens</th>
+                                <th>Length</th>
+                                <th>A</th>
+                                <th>T</th>
+                                <th>G</th>
+                                <th>C</th>
+                                <th>N</th>
+                                <th>GC (%)</th>
+                                <th>AT (%)</th>
+                                <th>Protein Preview</th> </tr>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="watermark">
+            <p><strong>Rafif Alfarrel Nugroho</strong> | NIM: G0401241015</p>
+            <p>Program Studi Bioinformatika | Angkatan 61</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
